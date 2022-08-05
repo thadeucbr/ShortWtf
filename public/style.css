@@ -1,0 +1,21 @@
+body {
+  background-color: bisque;
+  height: 100%;
+}
+
+.center {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  #inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #shortUrl {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+  }
