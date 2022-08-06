@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post, Redirect } from '@nestjs/common';
+import { CreateShortUrlDto } from './dto/create-short-url.dto';
 import { UrlShortnerService } from './url-shortner.service';
 
 @Controller('url-shortner')
@@ -6,7 +7,7 @@ export class UrlShortnerController {
   constructor(private readonly urlShortnerService: UrlShortnerService) {}
 
   @Post()
-  async create(@Body() body) {
+  async create(@Body() body: CreateShortUrlDto) {
     const { url } = body;
     const newUrl = await this.urlShortnerService.createUrl(url);
     return { newUrl: `https://short.wtf/${newUrl.shortUrl}` };
