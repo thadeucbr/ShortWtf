@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UrlShortnerModule } from './url-shortner/url-shortner.module';
 import { MetricsModule } from './metrics/metrics.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { MetricsModule } from './metrics/metrics.module';
     }),
     UrlShortnerModule,
     MetricsModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [AppService],

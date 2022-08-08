@@ -4,15 +4,20 @@ import * as fs from 'fs';
 @Injectable()
 export class MetricsService {
   newPageAcess() {
-    let cont;
-
+    let file = {
+      access: 1,
+      longestResponse: 0,
+      shortestResponse: 200,
+      avgResponse: 0,
+      webAccess: 1,
+    };
     try {
-      cont = JSON.parse(fs.readFileSync('./cont.json').toString());
-      cont += 1;
+      file = JSON.parse(fs.readFileSync('./cont.json', 'utf-8'));
+      file.webAccess += 1;
+      fs.writeFileSync('./cont.json', JSON.stringify(file));
     } catch (err) {
-      cont = 1;
+      file.webAccess = 1;
+      fs.writeFileSync('./cont.json', JSON.stringify(file));
     }
-
-    fs.writeFileSync('./cont.json', JSON.stringify(cont));
   }
 }
